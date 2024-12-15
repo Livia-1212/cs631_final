@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createAppointment } from '../../api/appointmentService';
 import ServicePackageDetails from './ServicePackageDetails';
+import { useNavigate } from 'react-router-dom';
 
 const AppointmentForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -10,6 +11,7 @@ const AppointmentForm = () => {
   const [estimatedTime, setEstimatedTime] = useState('');
   const [selectedPackage, setSelectedPackage] = useState('');
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const appointment = {
@@ -24,6 +26,7 @@ const AppointmentForm = () => {
       console.log(appointment);
       await createAppointment(appointment);
       alert('Appointment Created Successfully');
+      navigate(`/service-appointments`); // Redirect to appointment list page
     } catch (error) {
       console.error('Error creating appointment:', error);
       alert('Failed to create appointment. Please try again.');

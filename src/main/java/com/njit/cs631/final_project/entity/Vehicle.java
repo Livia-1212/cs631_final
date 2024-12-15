@@ -23,6 +23,7 @@ public class Vehicle {
     private String vin;
     private BigDecimal price;
     private BigDecimal costPrice;
+    @Column(name="is_sold")
     private boolean soldStatus;
 }
 

@@ -16,6 +16,7 @@ public class CustomerController {
 
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
+        System.out.println(customer.getFirstName());
         return ResponseEntity.ok(customerService.saveCustomer(customer));
     }
 

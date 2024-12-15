@@ -9,8 +9,9 @@ const AppointmentList = () => {
   useEffect(() => {
     async function fetchAppointments() {
       const data = await getAppointments();
-      setAppointments(data);
-      setFilteredAppointments(data);
+      const sortedData = data.sort((a, b) => a.appointmentId - b.appointmentId);
+      setAppointments(sortedData);
+      setFilteredAppointments(sortedData);
     }
     fetchAppointments();
   }, []);

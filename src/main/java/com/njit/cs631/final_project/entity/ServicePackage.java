@@ -16,10 +16,14 @@ public class ServicePackage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "package_id")
+    @Column(name = "service_package_id")
     private int packageId;
+
+    @Column(name = "package_type")
     private String packageName;
-    private int carAge;
+//    private int carAge;
+    @Column(name = "estimated_cost")
     private BigDecimal laborCost;
+    private int estimatedHours;
     private String description;
 }
