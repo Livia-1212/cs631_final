@@ -1,17 +1,17 @@
-INSERT INTO customer (first_name, last_name, address, contact_number, email, is_returning_customer)
+INSERT INTO customer (first_name, last_name, address, contact_number, email)
 VALUES
-('John', 'Doe', '123 Main St', '555-1234', 'john.doe@example.com', TRUE),
-('Jane', 'Smith', '456 Oak St', '555-5678', 'jane.smith@example.com', FALSE),
-('Alice', 'Johnson', '789 Pine St', '555-9012', 'alice.johnson@example.com', TRUE),
-('Bob', 'Williams', '101 Maple St', '555-3456', 'bob.williams@example.com', FALSE),
-('Eve', 'Brown', '202 Elm St', '555-7890', 'eve.brown@example.com', TRUE),
-('Charlie', 'Davis', '303 Birch St', '555-2345', 'charlie.davis@example.com', FALSE),
-('Grace', 'Miller', '404 Cedar St', '555-6789', 'grace.miller@example.com', TRUE),
-('David', 'Wilson', '505 Spruce St', '555-1230', 'david.wilson@example.com', FALSE),
-('Sophia', 'Moore', '606 Willow St', '555-4567', 'sophia.moore@example.com', TRUE),
-('Liam', 'Taylor', '707 Aspen St', '555-8901', 'liam.taylor@example.com', FALSE);
+('John', 'Doe', '123 Main St', '555-1234', 'john.doe@example.com'),
+('Jane', 'Smith', '456 Oak St', '555-5678', 'jane.smith@example.com'),
+('Alice', 'Johnson', '789 Pine St', '555-9012', 'alice.johnson@example.com'),
+('Bob', 'Williams', '101 Maple St', '555-3456', 'bob.williams@example.com'),
+('Eve', 'Brown', '202 Elm St', '555-7890', 'eve.brown@example.com'),
+('Charlie', 'Davis', '303 Birch St', '555-2345', 'charlie.davis@example.com'),
+('Grace', 'Miller', '404 Cedar St', '555-6789', 'grace.miller@example.com'),
+('David', 'Wilson', '505 Spruce St', '555-1230', 'david.wilson@example.com'),
+('Sophia', 'Moore', '606 Willow St', '555-4567', 'sophia.moore@example.com'),
+('Liam', 'Taylor', '707 Aspen St', '555-8901', 'liam.taylor@example.com');
 
-INSERT INTO vehicle (make, model, year, vin, price, cost_price, sold_status)
+INSERT INTO vehicle (vehicle_id, make, model, year, vin, price, cost_price, is_sold)
 VALUES
 ('Honda', 'Civic', 2021, '2HGCM82633A654321', 22000.00, 18000.00, TRUE),
 ('Ford', 'F-150', 2023, '3HGCM82633A789012', 35000.00, 28000.00, FALSE),
@@ -49,7 +49,7 @@ VALUES
 (10, 9, 32000.00, '2024-06-01', 5);
 
 
-INSERT INTO service_package (package_name, car_age, labor_cost, description)
+INSERT INTO service_package (service_package_id, package_type, estimated_hours, estimated_cost, description)
 VALUES
 ('1-Year Service', 1, 100.00, 'Oil change, tire rotation, basic inspection'),
 ('2-Year Service', 2, 200.00, 'Oil change, brake check, detailed inspection'),
@@ -57,7 +57,7 @@ VALUES
 ('4-Year Service', 4, 400.00, 'Advanced service, suspension check, full diagnostics'),
 ('5-Year Service', 5, 500.00, 'Comprehensive service, engine tune-up, full repairs');
 
-INSERT INTO service_appointment(appointment_id, vehicle_id,customer_id, scheduled_time, package_id, estimated_time, appointment_status)
+INSERT INTO service_appointment(appointment_id,customer_id, vehicle_id, scheduled_date, package_id, time, appointment_status)
 VALUES
 (1, 1,1, '2024-07-01 09:00:00', 1, 120, 'scheduled'),
 (2, 2, 2, '2024-07-02 10:00:00', 2, 150, 'completed'),
@@ -70,7 +70,7 @@ VALUES
 (8, 6, 8, '2024-07-09 11:30:00', 3, 180, 'completed'),
 (10, 9, 10, '2024-07-10 08:00:00', 1, 90, 'scheduled');
 
-INSERT INTO parts (part_name, price, stock_quantity)
+INSERT INTO parts (PartID, part_name, price, stock_quantity, cost)
 VALUES
 ('Oil Filter', 15.00, 100),
 ('Brake Pads', 45.00, 50),
@@ -83,7 +83,7 @@ VALUES
 ('Alternator', 150.00, 10),
 ('Timing Belt', 200.00, 5);
 
-INSERT INTO service_detail (appointment_id, arrival_time, pick_up_time, service_performed, parts_used, labor_hours, total_cost)
+INSERT INTO service_detail (service_id, appointment_id, arrival_time, pick_up_time, service_performed, labor_hours, total_cost)
 VALUES
 (1, '2024-07-01 09:00:00', '2024-07-01 11:00:00', 'Basic Inspection', 'Oil Filter', 2.0, 120.00),
 (2, '2024-07-02 10:00:00', '2024-07-02 12:30:00', 'Brake Check', 'Brake Pads', 2.5, 250.00),

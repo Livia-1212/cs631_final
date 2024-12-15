@@ -17,7 +17,6 @@ CREATE TABLE customer (
     address VARCHAR(100),
     contact_number VARCHAR(15),
     email VARCHAR(50),
-    is_returning_customer BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE vehicle (
@@ -28,7 +27,7 @@ CREATE TABLE vehicle (
     vin VARCHAR(17) UNIQUE NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     cost_price DECIMAL(10, 2), 
-    sold_status BOOLEAN DEFAULT FALSE
+    is_sold BOOLEAN DEFAULT FALSE 
 );
 
 CREATE TABLE salesperson (
@@ -51,10 +50,10 @@ CREATE TABLE sales (
 );
 
 CREATE TABLE service_package (
-    package_id INT PRIMARY KEY AUTO_INCREMENT,
-    package_name VARCHAR(50) NOT NULL,
-    car_age INT NOT NULL,
-    labor_cost DECIMAL(10, 2),
+    service_package_id INT PRIMARY KEY AUTO_INCREMENT,
+    package_type VARCHAR(50) NOT NULL,
+    estimated_hours INT NOT NULL,
+    estimated_cost DECIMAL(10, 2),
     description TEXT
 );
 
@@ -62,9 +61,9 @@ CREATE TABLE service_appointment (
     appointment_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id BIGINT,
     vehicle_id BIGINT,
-    scheduled_time DATETIME NOT NULL,
+    scheduled_date DATETIME NOT NULL,
     package_id INT,
-    estimated_time INT,
+    time INT,
     appointment_status VARCHAR(20) DEFAULT 'scheduled',
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
     FOREIGN KEY (vehicle_id) REFERENCES vehicle(vehicle_id),
@@ -77,7 +76,6 @@ CREATE TABLE service_detail (
     arrival_time DATETIME NOT NULL,
     pick_up_time DATETIME,  
     service_performed TEXT,
-    parts_used TEXT,
     labor_hours DECIMAL(4, 2),  
     total_cost DECIMAL(10, 2),
     FOREIGN KEY (appointment_id) REFERENCES service_appointment(appointment_id)
@@ -86,6 +84,7 @@ CREATE TABLE service_detail (
 CREATE TABLE parts (
     PartID INT PRIMARY KEY AUTO_INCREMENT,
     part_name VARCHAR(50) NOT NULL,
-    Price DECIMAL(10, 2) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
     stock_quantity INT NOT NULL
+    cost INT NOT NULL
 );
