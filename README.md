@@ -44,7 +44,7 @@ This project schema is not directly based on the ER-Diagram reference provided i
 
 ## Report and Summary
 **Final Report**
-[Final_Project_Report](https://docs.google.com/document/d/1odoCWQLeyx8yrVUOYz3z5oIYrKAx2yD0/edit?usp=drive_link&ouid=103582853920917914547&rtpof=true&sd=true) 
+[Final_Project_Report](https://github.com/Livia-1212/cs631_final/blob/master/Database%20Final%20Project%20Report.docx) 
 
 **Final Report for Mapping**
 [Final-Project-Mapping](https://drive.google.com/file/d/1qodh2vqWYaIu1mbUI1j6o-MFaOYQgMgZ/view?usp=drive_link)
