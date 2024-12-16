@@ -13,15 +13,15 @@ VALUES
 
 INSERT INTO vehicle (make, model, year, vin, price, cost_price, is_sold)
 VALUES
-('Honda', 'Civic', 2021, '2HGCM82633A654321', 22000.00, 18000.00, TRUE),
-('Ford', 'F-150', 2023, '3HGCM82633A789012', 35000.00, 28000.00, FALSE),
-('Chevrolet', 'Malibu', 2020, '4HGCM82633A890124', 23000.00, 19000.00, TRUE), -- Adjusted VIN
-('Nissan', 'Altima', 2022, '5HGCM82633A345679', 24000.00, 19500.00, TRUE), -- Adjusted VIN
-('BMW', 'X5', 2023, '6HGCM82633A567891', 60000.00, 50000.00, FALSE), -- Adjusted VIN
-('Tesla', 'Model 3', 2021, '7HGCM82633A123790', 45000.00, 40000.00, TRUE), -- Adjusted VIN
-('Hyundai', 'Elantra', 2020, '8HGCM82633A654988', 20000.00, 16000.00, TRUE), -- Adjusted VIN
-('Kia', 'Sorento', 2023, '9HGCM82633A345124', 32000.00, 27000.00, FALSE), -- Adjusted VIN
-('Mazda', 'CX-5', 2022, '0HGCM82633A567235', 28000.00, 23000.00, TRUE); -- Adjusted VIN
+('Honda', 'Civic', 2021, '2HGCM82633A344321', 22000.00, 18000.00, TRUE),
+('Ford', 'F-150', 2023, '3HGEM82633A789012', 35000.00, 28000.00, FALSE),
+('Chevrolet', 'Malibu', 2020, '4HWE82633A890124', 23000.00, 19000.00, TRUE), -- Adjusted VIN
+('Nissan', 'Altima', 2022, '5AECM82633A345679', 24000.00, 19500.00, TRUE), -- Adjusted VIN
+('BMW', 'X5', 2023, '6HGCM45783A567891', 60000.00, 50000.00, FALSE), -- Adjusted VIN
+('Tesla', 'Model 3', 2021, '7HGC3M2633A123790', 45000.00, 40000.00, TRUE), -- Adjusted VIN
+('Hyundai', 'Elantra', 2020, '8HGCM82333A654988', 20000.00, 16000.00, TRUE), -- Adjusted VIN
+('Kia', 'Sorento', 2023, '9HGCM82637A345124', 32000.00, 27000.00, FALSE), -- Adjusted VIN
+('Mazda', 'CX-5', 2022, '0HGCM24633A567235', 28000.00, 23000.00, TRUE); -- Adjusted VIN
 
 INSERT INTO salesperson (first_name, last_name, contact_number)
 VALUES
@@ -59,16 +59,16 @@ VALUES
 
 INSERT INTO service_appointment(customer_id, vehicle_id, scheduled_date, service_package_id, time, appointment_status)
 VALUES
-(1,1, '2024-07-01 09:00:00', 1, 120, 'scheduled'),
-(2, 2, '2024-07-02 10:00:00', 2, 150, 'completed'),
-(4, 4, '2024-07-03 11:00:00', 3, 180, 'scheduled'),
-(5, 3, '2024-07-04 08:30:00', 1, 90, 'completed'),
-(7, 6, '2024-07-05 14:00:00', 2, 120, 'scheduled'),
-(8, 5, '2024-07-06 15:30:00', 3, 180, 'scheduled'),
-(6, 9, '2024-07-07 09:00:00', 1, 120, 'completed'),
-(3, 7, '2024-07-08 10:00:00', 2, 150, 'scheduled'),
-(6, 8, '2024-07-09 11:30:00', 3, 180, 'completed'),
-(9, 8, '2024-07-10 08:00:00', 1, 90, 'scheduled');
+(1,1, '2024-07-01 09:00:00', 1, '12:00:00', 'scheduled'),
+(2, 2, '2024-07-02 10:00:00', 2, '15:00:00', 'completed'),
+(4, 4, '2024-07-03 11:00:00', 3, '18:30:00', 'scheduled'),
+(5, 3, '2024-07-04 08:30:00', 1, '09:20:00', 'completed'),
+(7, 6, '2024-07-05 14:00:00', 2, '12:40:10', 'scheduled'),
+(8, 5, '2024-07-06 15:30:00', 3, '18:35:22', 'scheduled'),
+(6, 9, '2024-07-07 09:00:00', 1, '12:10:00', 'completed'),
+(3, 7, '2024-07-08 10:00:00', 2, '15:20:00', 'scheduled'),
+(6, 8, '2024-07-09 11:30:00', 3, '18:50:55', 'completed'),
+(9, 8, '2024-07-10 08:00:00', 1, '19:20:20', 'scheduled');
 
 INSERT INTO parts (part_name, price, stock_quantity, cost)
 VALUES
@@ -94,4 +94,3 @@ VALUES
 (7, '2024-07-07 09:00:00', '2024-07-07 11:30:00', 'Suspension Check', 3.0, 400.00),
 (8, '2024-07-08 10:00:00', '2024-07-08 12:30:00', 'Engine Tuning', 2.5, 500.00),
 (9, '2024-07-09 11:30:00', '2024-07-09 14:00:00', 'Battery Replacement', 1.5, 200.00);
-

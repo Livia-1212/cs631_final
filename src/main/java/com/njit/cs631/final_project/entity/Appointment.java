@@ -1,10 +1,10 @@
 package com.njit.cs631.final_project.entity;
 
-
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Data
 @Entity
@@ -32,7 +32,7 @@ public class Appointment {
     private ServicePackage servicePackage;
 
     @Column(name = "time", nullable = false)
-    private Integer estimatedTime; // in minutes
+    private LocalTime time; // Updated to LocalTime to match the TIME column
 
     @Column(name = "appointment_status", nullable = false)
     private String appointmentStatus = "scheduled";
@@ -77,12 +77,12 @@ public class Appointment {
         this.servicePackage = servicePackage;
     }
 
-    public Integer getEstimatedTime() {
-        return estimatedTime;
+    public LocalTime getTime() {
+        return time;
     }
 
-    public void setEstimatedTime(Integer estimatedTime) {
-        this.estimatedTime = estimatedTime;
+    public void setTime(LocalTime time) {
+        this.time = time;
     }
 
     public String getAppointmentStatus() {

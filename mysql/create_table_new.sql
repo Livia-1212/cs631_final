@@ -63,7 +63,7 @@ CREATE TABLE service_appointment (
     vehicle_id BIGINT,
     scheduled_date DATETIME NOT NULL,
     service_package_id INT,
-    time INT,
+    time TIME NOT NULL,
     appointment_status VARCHAR(20) DEFAULT 'scheduled',
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
     FOREIGN KEY (vehicle_id) REFERENCES vehicle(vehicle_id),
