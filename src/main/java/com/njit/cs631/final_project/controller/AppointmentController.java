@@ -1,7 +1,10 @@
 package com.njit.cs631.final_project.controller;
 
 import com.njit.cs631.final_project.dto.AppointmentDTO;
+import com.njit.cs631.final_project.dto.AppointmentDetailDTO;
 import com.njit.cs631.final_project.dto.AppointmentRequestDTO;
+import com.njit.cs631.final_project.dto.ServiceDetailDTO;
+import com.njit.cs631.final_project.entity.Appointment;
 import com.njit.cs631.final_project.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,4 +51,12 @@ public class AppointmentController {
             return new ResponseEntity<>("Error: " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<AppointmentDetailDTO> getAppointmentDetailById(@PathVariable Long id) {
+        AppointmentDetailDTO appointmentDetail = appointmentService.getAppointmentDetailById(id);
+        return ResponseEntity.ok(appointmentDetail);
+    }
+
+
 }

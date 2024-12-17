@@ -1,6 +1,7 @@
 package com.njit.cs631.final_project.repository;
 import com.njit.cs631.final_project.dto.AppointmentDTO;
 import com.njit.cs631.final_project.entity.Appointment;
+import lombok.Data;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

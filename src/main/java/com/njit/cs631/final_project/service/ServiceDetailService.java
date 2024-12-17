@@ -12,11 +12,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServiceDetailService {
 
-    @Autowired
-    private ServiceDetailRepository serviceDetailRepository;
+    private final AppointmentRepository appointmentRepository;
+    private final ServiceDetailRepository serviceDetailRepository;
 
     @Autowired
-    private AppointmentRepository appointmentRepository;
+    public ServiceDetailService(AppointmentRepository appointmentRepository, ServiceDetailRepository serviceDetailRepository) {
+        this.appointmentRepository = appointmentRepository;
+        this.serviceDetailRepository = serviceDetailRepository;
+    }
 
     public ServiceDetail addServiceDetail(ServiceDetailDTO serviceDetailDTO) {
         Appointment appointment = appointmentRepository.findById(serviceDetailDTO.getAppointmentId())
@@ -32,5 +35,23 @@ public class ServiceDetailService {
 
         return serviceDetailRepository.save(serviceDetail);
     }
+    public void updateServiceDetail(ServiceDetailDTO serviceDetailDTO) {
+        Appointment appointment = appointmentRepository.findById(serviceDetailDTO.getAppointmentId())
+                .orElseThrow(() -> new RuntimeException("Appointment not found"));
+
+        ServiceDetail serviceDetail = serviceDetailRepository.findByAppointment(appointment)
+                .orElse(new ServiceDetail());
+
+        serviceDetail.setAppointment(appointment);
+        serviceDetail.setArrivalTime(serviceDetailDTO.getArrivalTime());
+        serviceDetail.setPickUpTime(serviceDetailDTO.getPickUpTime());
+        serviceDetail.setServicePerformed(serviceDetailDTO.getServicePerformed());
+//        serviceDetail.setPartsUsed(serviceDetailDTO.getPartsUsed());
+        serviceDetail.setLaborHours(serviceDetailDTO.getLaborHours());
+        serviceDetail.setTotalCost(serviceDetailDTO.getTotalCost());
+
+        serviceDetailRepository.save(serviceDetail);
+    }
+
 }
 

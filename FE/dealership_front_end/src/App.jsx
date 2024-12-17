@@ -6,6 +6,7 @@ import ReturningCustomerForm from './components/Sale/ReturningCustomerForm';
 import SaleDetailsForm from './components/Sale/SaleDetailsForm';
 import AppointmentForm from './components/Appointments/AppointmentForm';
 import AppointmentList from './components/Appointments/AppointmentList';
+import AppointmentDetail from './components/Appointments/AppointmentDetail';
 import './App.css';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/sale-details/:customerId" element={<SaleDetailsForm />} />
         <Route path="/service-appointments" element={<AppointmentList />} />
         <Route path="/service-appointments/new" element={<AppointmentForm />} />
+        <Route path="/appointment/:id" element={<AppointmentDetail />} />
       </Routes>
     </Router>
   );

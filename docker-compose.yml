@@ -17,28 +17,28 @@ services:
       timeout: 5s
       retries: 3
 
+#
+#  backend:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    container_name: cs631_backend
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/dealership
+#      SPRING_DATASOURCE_USERNAME: root
+#      SPRING_DATASOURCE_PASSWORD: password
+#    depends_on:
+#      - mysql
+#    ports:
+#      - "8080:8080"
 
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: cs631_backend
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/dealership
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: password
-    depends_on:
-      - mysql
-    ports:
-      - "8080:8080"
-
-  frontend:
-    build:
-      context: ./FE/dealership_front_end
-      dockerfile: Dockerfile
-    container_name: frontend
-    ports:
-      - "5173:80"
+#  frontend:
+#    build:
+#      context: ./FE/dealership_front_end
+#      dockerfile: Dockerfile
+#    container_name: frontend
+#    ports:
+#      - "5173:80"
 
 
 volumes:

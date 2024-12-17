@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getAppointments } from '../../api/appointmentService';
 import AppointmentFilter from './AppointmentFilter';
+import { useNavigate } from 'react-router-dom';
 
 const AppointmentList = () => {
   const [appointments, setAppointments] = useState([]);
   const [filteredAppointments, setFilteredAppointments] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchAppointments() {
@@ -21,6 +23,10 @@ const AppointmentList = () => {
       appointment.date.includes(criteria.date)
     );
     setFilteredAppointments(filtered);
+  };
+
+  const handleRowClick = (appointmentId) => {
+    navigate(`/appointment/${appointmentId}`); // Navigate to the detail page
   };
 
   return (
@@ -45,7 +51,11 @@ const AppointmentList = () => {
         </thead>
         <tbody>
           {filteredAppointments.map((appointment) => (
-            <tr key={appointment.appointmentId}>
+            <tr
+              key={appointment.appointmentId}
+              onClick={() => handleRowClick(appointment.appointmentId)}
+              style={{ cursor: 'pointer' }}
+            >
               <td>{appointment.appointmentId}</td>
               <td>{appointment.appointmentStatus}</td>
               <td>{appointment.scheduledTime}</td>
